@@ -1,0 +1,211 @@
+/* Estilos CSS para JavaFX - Celeste con Gris */
+
+/* Estilos base de la raíz */
+.root {
+    -fx-base: #eaf6ff;
+    -fx-background: #f8f9fa;
+    -fx-control-inner-background: #ffffff;
+    -fx-accent: #0dcaf0;  /* Celeste */
+    -fx-focus-color: #0dcaf0;
+}
+
+/* Labels y texto */
+.label {
+    -fx-text-fill: #495057;  /* Gris oscuro para legibilidad */
+    -fx-font-weight: normal;
+}
+
+/* Campos de entrada */
+.text-field, .combo-box, .table-view {
+    -fx-background-color: #ffffff;
+    -fx-border-color: #adb5bd;  /* Gris medio */
+    -fx-border-width: 2px;
+    -fx-border-radius: 6px;
+}
+
+.text-field:focused, .combo-box:focused {
+    -fx-border-color: #0dcaf0;
+    -fx-background-color: #ffffff;
+}
+
+/* Área de texto */
+.text-area {
+    -fx-background-color: #ffffff;
+    -fx-border-color: #adb5bd;
+    -fx-border-width: 2px;
+    -fx-border-radius: 6px;
+    -fx-min-height: 35px;
+}
+
+.text-area:focused {
+    -fx-border-color: #0dcaf0;
+}
+
+.text-area .content {
+    -fx-background-color: #ffffff;
+    -fx-padding: 8px;
+}
+
+/* Tablas */
+.table-view {
+    -fx-background-color: #ffffff;
+    -fx-border-color: #adb5bd;
+    -fx-border-width: 2px;
+    -fx-border-radius: 8px;
+}
+
+.table-view .column-header,
+.table-view .column-header-background .filler {
+    -fx-background-color: #0dcaf0;
+    -fx-border-color: #0dcaf0;
+}
+
+.table-view .column-header .label {
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+}
+
+.table-view .table-row-cell {
+    -fx-background-color: #ffffff;
+    -fx-text-fill: #495057;
+}
+
+.table-view .table-row-cell:selected {
+    -fx-background-color: #0dcaf0;
+    -fx-text-fill: white;
+}
+
+.table-view .table-row-cell:hover {
+    -fx-background-color: #eaf6ff;
+}
+
+.table-view .table-row-cell:selected:hover {
+    -fx-background-color: #0bbdd9;
+    -fx-text-fill: white;
+}
+
+/* Botones */
+.button {
+    -fx-background-color: #0dcaf0;
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-background-radius: 6px;
+    -fx-border-radius: 6px;
+    -fx-padding: 10px 20px;
+    -fx-cursor: hand;
+}
+
+.button:hover {
+    -fx-background-color: #0bbdd9;
+}
+
+.button:pressed {
+    -fx-background-color: #0996b1;
+}
+
+.button:disabled {
+    -fx-background-color: #6c757d;
+    -fx-text-fill: #ffffff;
+    -fx-opacity: 0.65;
+}
+
+/* Botón Secundario */
+.button.secondary {
+    -fx-background-color: transparent;
+    -fx-text-fill: #495057;
+    -fx-border-color: #adb5bd;
+    -fx-border-width: 2px;
+}
+
+.button.secondary:hover {
+    -fx-background-color: #0dcaf0;
+    -fx-text-fill: white;
+}
+
+/* CheckBox */
+.check-box {
+    -fx-text-fill: #495057;
+}
+
+.check-box .box {
+    -fx-background-color: #ffffff;
+    -fx-border-color: #adb5bd;
+    -fx-border-width: 2px;
+}
+
+.check-box:selected .box {
+    -fx-background-color: #0dcaf0;
+    -fx-border-color: #0dcaf0;
+}
+
+.check-box:selected .mark {
+    -fx-background-color: white;
+}
+
+/* RadioButton */
+.radio-button {
+    -fx-text-fill: #495057;
+}
+
+.radio-button .radio {
+    -fx-background-color: #ffffff;
+    -fx-border-color: #adb5bd;
+    -fx-border-width: 2px;
+}
+
+.radio-button:selected .radio {
+    -fx-border-color: #0dcaf0;
+}
+
+.radio-button:selected .dot {
+    -fx-background-color: #0dcaf0;
+}
+
+/* ProgressBar */
+.progress-bar {
+    -fx-background-color: #eaf6ff;
+    -fx-border-color: #adb5bd;
+    -fx-border-radius: 10px;
+}
+
+.progress-bar .bar {
+    -fx-background-color: #0dcaf0;
+    -fx-background-radius: 8px;
+}
+
+/* Slider */
+.slider .track {
+    -fx-background-color: #adb5bd;
+}
+
+.slider .thumb {
+    -fx-background-color: #0dcaf0;
+    -fx-background-radius: 12px;
+}
+
+/* MenuBar */
+.menu-bar {
+    -fx-background-color: #0dcaf0;
+    -fx-padding: 5px;
+}
+
+.menu-bar .label {
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+}
+
+.menu-item {
+    -fx-background-color: #dee2e6;
+    -fx-text-fill: #495057;
+    -fx-padding: 8px 16px;
+}
+
+.menu-item:focused {
+    -fx-background-color: #0dcaf0;
+    -fx-text-fill: white;
+}
+
+.menu-item:hover {
+    -fx-background-color: #adb5bd;
+    -fx-text-fill: white;
+}
