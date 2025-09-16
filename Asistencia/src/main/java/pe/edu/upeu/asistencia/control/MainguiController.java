@@ -36,7 +36,7 @@ public class MainguiController {
     ApplicationContext context;
 
     public void initialize() {
-        comboEstilo.getItems().addAll("Estilo por defecto","Estilo oscuro","Estilo azul","Estilo rosado","Estilo verde" , "Estilo morado" , "Estilo naranja" , "Estilo celeste");
+        comboEstilo.getItems().addAll("Estilo por defecto","Estilo oscuro","Estilo azul","Estilo rosado","Estilo verde");
         comboEstilo.setOnAction(e->cambiarEstilo());
         customMenuItem.setHideOnClick(false);
         menuEstilos.getItems().addAll(customMenuItem);
@@ -54,9 +54,6 @@ public class MainguiController {
             case "Estilo azul":scene.getStylesheets().add(getClass().getResource("/css/css/estilo-azul.css").toExternalForm());break;
             case "Estilo rosado":scene.getStylesheets().add(getClass().getResource("/css/css/estilo-rosado.css").toExternalForm());break;
             case "Estilo verde":scene.getStylesheets().add(getClass().getResource("/css/css/estilo-verde.css").toExternalForm());break;
-            case "Estilo morado":scene.getStylesheets().add(getClass().getResource("/prueba/estilo-morado.css").toExternalForm());break;
-            case "Estilo naranja":scene.getStylesheets().add(getClass().getResource("/prueba/estilo-naranja.css").toExternalForm());break;
-            case "estilo celeste":scene.getStylesheets().add(getClass().getResource("/prueba/estilo-celeste.css").toExternalForm());break;
             default:break;
         }
     }
