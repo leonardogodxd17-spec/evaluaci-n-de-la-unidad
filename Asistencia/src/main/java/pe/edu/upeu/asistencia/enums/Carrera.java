@@ -3,26 +3,21 @@ package pe.edu.upeu.asistencia.enums;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
-import lombok.Setter;
 
-@Getter
 @AllArgsConstructor
 @NoArgsConstructor
-
+@Getter
 public enum Carrera {
-    SISTEMAS(Facultad.FIA,"Sistemas"),
+    SISTEMAS(Facultad.FIA, "Sistemas"),
+    CIVIL(Facultad.FIA,  "Civil"),
 
-    CIVIL(Facultad.FIA,"Civil"),
+    ADMINISTRACION(Facultad.FCE,  "Administración"),
 
-    ARQUITECTURA(Facultad.FIA,"Arquitectura"),
+    NUTRICION(Facultad.FCS, "Nutrición"),
 
-    EDUCACION(Facultad.FACIHED,"Educacion"),
+    EDUCACION(Facultad.FACIHED, "Educación"),
 
-    CONTABILIDAD(Facultad.FCE,"Contabilidades"),
-
-    NUTRICION(Facultad.FCS,"Nutricion"),
-
-    INTERNACIONAL(Facultad.GENERAL,"Internacional"),;
+    GENERAL(Facultad.GENERAL, "General"),;
 
     private Facultad facultad;
     private String descripcion;

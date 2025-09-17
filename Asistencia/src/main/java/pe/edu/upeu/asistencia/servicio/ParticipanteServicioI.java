@@ -5,16 +5,15 @@ import pe.edu.upeu.asistencia.modelo.Participante;
 import java.util.List;
 
 public interface ParticipanteServicioI {
+
     void save(Participante participante); //C
 
-    List<Participante> findAll();//R
+    List<Participante> findAll(); // R
 
-    void delete(int index);//U
+    void update(Participante participante, int index); //U
 
-    void update(Participante participante, int index);//D
+    void delete(int index); //D
 
-    Participante findByid(int index);//Buscar ese
-
-
+    Participante findById(int index); //Buscar
 
 }

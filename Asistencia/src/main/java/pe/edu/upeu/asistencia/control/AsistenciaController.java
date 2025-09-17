@@ -3,7 +3,6 @@ package pe.edu.upeu.asistencia.control;
 import javafx.beans.property.SimpleBooleanProperty;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,28 +12,36 @@ import pe.edu.upeu.asistencia.servicio.ParticipanteServicioI;
 
 @Controller
 public class AsistenciaController {
+
     @Autowired
-    private ParticipanteServicioI participanteServicioI;
+    ParticipanteServicioI participanteServicioI;
+
     @FXML private Label idMsg;
-    @FXML TextField txtdato;
-    @FXML Button btnenviar;
+    @FXML TextField txtDato;
+
+    //@FXML Button btnEnviar;
+
     @FXML
     void enviar(){
-        System.out.println("KS");
-        idMsg.setText(txtdato.getText());
+        System.out.println("Enviando asistencia");
+        idMsg.setText(txtDato.getText());
+    }
 
-    }
     @FXML
-    void regEstudiantes(){
+    void regEstudiante(){
         Participante participante = new Participante();
-        participante.setNombre(new SimpleStringProperty(txtdato.getText()));
+        participante.setNombre(new SimpleStringProperty(txtDato.getText()));
         participante.setEstado(new SimpleBooleanProperty(true));
+
         participanteServicioI.save(participante);
-        listaEstudiantes();
+        listarEstudiantes();
     }
-    void listaEstudiantes(){
+
+    void listarEstudiantes(){
         for (Participante e: participanteServicioI.findAll()){
             System.out.println(e.getNombre());
         }
     }
+
+
 }

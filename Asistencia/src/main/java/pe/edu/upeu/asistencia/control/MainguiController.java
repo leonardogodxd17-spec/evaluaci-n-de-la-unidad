@@ -12,15 +12,14 @@ import javafx.scene.layout.BorderPane;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
 import org.springframework.stereotype.Controller;
-import pe.edu.upeu.asistencia.Aplication;
 
-import java.awt.event.ActionListener;
 import java.io.IOException;
 import java.util.Map;
 
-@Controller
 
+@Controller
 public class MainguiController {
+
     @FXML
     private BorderPane bp;
     @FXML
@@ -28,44 +27,55 @@ public class MainguiController {
     @FXML
     TabPane tabPane;
     @FXML
-    MenuItem MenuItem1, MenuItemC;
-    Menu menuEstilos=new Menu("Cambiar estilos");
+    MenuItem menuItem1, menuItemC;
+
+    Menu menuEstilos=new Menu("Cambiar Estilos");
     ComboBox<String> comboEstilo=new ComboBox<>();
     CustomMenuItem customMenuItem=new CustomMenuItem(comboEstilo);
+
     @Autowired
     ApplicationContext context;
 
-    public void initialize() {
-        comboEstilo.getItems().addAll("Estilo por defecto","Estilo oscuro","Estilo azul","Estilo rosado","Estilo verde");
+    @FXML
+    public void initialize(){
+        comboEstilo.getItems().addAll("Estilo por defecto","Estilo Oscuro"
+                ,"Estilo Azul","Estilo Rosado", "Estilo Verde");
         comboEstilo.setOnAction(e->cambiarEstilo());
         customMenuItem.setHideOnClick(false);
-        menuEstilos.getItems().addAll(customMenuItem);
+        menuEstilos.getItems().add(customMenuItem);
         menuBar.getMenus().addAll(menuEstilos);
+
         MenuItemListener mIL=new MenuItemListener();
-        MenuItem1.setOnAction(mIL::handle);
-        MenuItemC.setOnAction(mIL::handle);
+        menuItem1.setOnAction(mIL::handle);
+        menuItemC.setOnAction(mIL::handle);
     }
+
     public void cambiarEstilo(){
         String estilo=comboEstilo.getSelectionModel().getSelectedItem();
         Scene scene=bp.getScene();
         scene.getStylesheets().clear();
-        switch(estilo){
-            case "Estilo oscuro":scene.getStylesheets().add(getClass().getResource("/css/css/estilo-oscuro.css").toExternalForm());break;
-            case "Estilo azul":scene.getStylesheets().add(getClass().getResource("/css/css/estilo-azul.css").toExternalForm());break;
-            case "Estilo rosado":scene.getStylesheets().add(getClass().getResource("/css/css/estilo-rosado.css").toExternalForm());break;
-            case "Estilo verde":scene.getStylesheets().add(getClass().getResource("/css/css/estilo-verde.css").toExternalForm());break;
-            default:break;
+        switch (estilo){
+            case "Estilo Oscuro":
+                scene.getStylesheets().add(getClass().getResource("/css/estilo-oscuro.css").toExternalForm()); break;
+            case "Estilo Azul":
+                scene.getStylesheets().add(getClass().getResource("/css/estilo-azul.css").toExternalForm()); break;
+            case "Estilo Rosado":
+                scene.getStylesheets().add(getClass().getResource("/css/estilo-rosado.css").toExternalForm()); break;
+            case "Estilo Verde":
+                scene.getStylesheets().add(getClass().getResource("/css/estilo-verde.css").toExternalForm()); break;
+            default: break;
         }
     }
+
     class MenuItemListener{
         Map<String, String[]> menuConfig=Map.of(
-                "MenuItem1", new String[]{"/fxml/main_participante.fxml","Reg.Participante","T"},
-                "MenuItemC", new String[]{"/fxml/login.fxml","salir","C"}
+            "menuItem1", new  String[]{"/fxml/main_participante.fxml", "Reg.ingreso", "T"},
+            "menuItemC", new  String[]{"/fxml/login.fxml", "Salir", "C"}
         );
 
-        public void handle(ActionEvent e){//STA
+        public void handle(ActionEvent e){
                 String id=((MenuItem)e.getSource()).getId();
-                if (menuConfig.containsKey(id)){
+                if(menuConfig.containsKey(id)){
                     String[] items=menuConfig.get(id);
                     if(items[2].equals("C")){
                         Platform.exit();
@@ -75,28 +85,30 @@ public class MainguiController {
                     }
                 }
         }
-        private void abrirTabPaneFXML(String fxmlPath,String tittle){
+        private void abrirTabPaneFXML(String fxmlPath, String tittle){
             try {
                 FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource(fxmlPath));
                 fxmlLoader.setControllerFactory(context::getBean);
                 Parent root = fxmlLoader.load();
-                ScrollPane scrollPane = new ScrollPane(root);
+
+                ScrollPane  scrollPane = new  ScrollPane(root);
                 scrollPane.setFitToWidth(true);
                 scrollPane.setFitToHeight(true);
-                Tab newtab = new Tab(tittle, scrollPane);
+
+                Tab newTab = new Tab(tittle, scrollPane);
                 tabPane.getTabs().clear();
-                tabPane.getTabs().add(newtab);
+                tabPane.getTabs().add(newTab);
+
             }catch (IOException ex){
                 throw new RuntimeException(ex);
             }
-
         }
     }
-
 
     class MenuListener{
         public void handle(Event e){
 
         }
     }
+
 }
