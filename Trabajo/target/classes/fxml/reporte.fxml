@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="pe.edu.upeu.asistencia.control.ReporteController">
+
+    <!-- Arriba: saldo general -->
+    <top>
+        <HBox spacing="10" alignment="CENTER_LEFT" style="-fx-padding: 10;">
+            <Label text="Saldo general:"/>
+            <Label fx:id="saldoLabel" text="0.0" style="-fx-font-weight: bold;"/>
+        </HBox>
+    </top>
+
+    <!-- Centro: tabla con movimientos -->
+    <center>
+        <TableView fx:id="tablaReporte" prefHeight="400" prefWidth="600">
+            <columns>
+                <TableColumn fx:id="colDescripcion" text="Descripción"/>
+                <TableColumn fx:id="colMonto" text="Monto"/>
+                <TableColumn fx:id="colTipo" text="Tipo"/>
+            </columns>
+        </TableView>
+    </center>
+</BorderPane>
